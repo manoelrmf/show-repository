@@ -7,6 +7,11 @@ export default class Main extends Component {
     newRepo: '',
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state.newRepo);
+  };
+
   handleInputChange = (e) => {
     this.setState({ newRepo: e.target.value });
   };
@@ -21,7 +26,7 @@ export default class Main extends Component {
           Repositórios
         </h1>
 
-        <Form onSubmit={() => {}}>
+        <Form onSubmit={this.handleSubmit}>
           <input
             type="text"
             placeholder="Adicionar repositório"
@@ -29,7 +34,7 @@ export default class Main extends Component {
             onChange={this.handleInputChange}
           />
 
-          <SubmitButton disabled>
+          <SubmitButton>
             <FaPlus color="#fff" size={14} />
           </SubmitButton>
         </Form>
