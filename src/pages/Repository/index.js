@@ -62,7 +62,9 @@ export default class Repository extends Component {
               <div>
                 <strong>
                   <a href={item.html_url}>{item.title}</a>
-                  {/* LABELS */}
+                  {item.labels.map((label) => (
+                    <span key={String(label.id)}>{label.name}</span>
+                  ))}
                 </strong>
                 <p>{item.user.login}</p>
               </div>
